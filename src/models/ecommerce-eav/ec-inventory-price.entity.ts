@@ -5,13 +5,13 @@ import {
   DataType,
   ForeignKey,
   BelongsTo,
-} from 'sequelize-typescript';
-import { ECInventory } from '@rahino/database/models/ecommerce-eav/ec-inventory.entity';
-import { ECVariationPrice } from '@rahino/database/models/ecommerce-eav/ec-variation-prices';
-import { User } from '@rahino/database/models/core/user.entity';
-import { DiscountAppliedInterface } from '@rahino/ecommerce/admin/discount/interface/discount-applied.interface';
+} from "sequelize-typescript";
+import { ECInventory } from "./ec-inventory.entity";
+import { ECVariationPrice } from "./ec-variation-prices";
+import { User } from "../core/user.entity";
+// import { DiscountAppliedInterface } from '@rahino/ecommerce/admin/discount/interface/discount-applied.interface';
 
-@Table({ tableName: 'ECInventoryPrices' })
+@Table({ tableName: "ECInventoryPrices" })
 export class ECInventoryPrice extends Model {
   @Column({
     type: DataType.BIGINT,
@@ -26,7 +26,7 @@ export class ECInventoryPrice extends Model {
   @ForeignKey(() => ECInventory)
   inventoryId: bigint;
 
-  @BelongsTo(() => ECInventory, { as: 'inventory', foreignKey: 'inventoryId' })
+  @BelongsTo(() => ECInventory, { as: "inventory", foreignKey: "inventoryId" })
   inventory?: ECInventory;
 
   @Column({
@@ -36,8 +36,8 @@ export class ECInventoryPrice extends Model {
   variationPriceId: number;
 
   @BelongsTo(() => ECVariationPrice, {
-    as: 'variationPrice',
-    foreignKey: 'variationPriceId',
+    as: "variationPrice",
+    foreignKey: "variationPriceId",
   })
   variationPrice?: ECVariationPrice;
 
@@ -62,7 +62,7 @@ export class ECInventoryPrice extends Model {
   @ForeignKey(() => User)
   userId: bigint;
 
-  @BelongsTo(() => User, { as: 'user', foreignKey: 'userId' })
+  @BelongsTo(() => User, { as: "user", foreignKey: "userId" })
   user?: User;
 
   @Column({
@@ -72,12 +72,12 @@ export class ECInventoryPrice extends Model {
   @ForeignKey(() => User)
   deletedBy?: bigint;
 
-  @BelongsTo(() => User, { as: 'deletedByUser', foreignKey: 'deletedBy' })
+  @BelongsTo(() => User, { as: "deletedByUser", foreignKey: "deletedBy" })
   deletedByUser?: User;
 
   @Column({
     type: DataType.VIRTUAL,
     allowNull: true,
   })
-  appliedDiscount?: DiscountAppliedInterface;
+  appliedDiscount?: any;
 }

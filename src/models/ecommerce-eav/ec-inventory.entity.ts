@@ -6,21 +6,21 @@ import {
   ForeignKey,
   BelongsTo,
   HasOne,
-} from 'sequelize-typescript';
-import { ECProduct } from '@rahino/database/models/ecommerce-eav/ec-product.entity';
-import { ECVendor } from '@rahino/database/models/ecommerce-eav/ec-vendor.entity';
-import { ECColor } from '@rahino/database/models/ecommerce-eav/ec-color.entity';
-import { ECGuarantee } from '@rahino/database/models/ecommerce-eav/ec-guarantee.entity';
-import { ECGuaranteeMonth } from '@rahino/database/models/ecommerce-eav/ec-guarantee-month.entity';
-import { ECProvince } from '@rahino/database/models/ecommerce-eav/ec-province.entity';
-import { ECVendorAddress } from '@rahino/database/models/ecommerce-eav/ec-vendor-address.entity';
-import { ECInventoryStatus } from '@rahino/database/models/ecommerce-eav/ec-inventory-status.entity';
-import { User } from '@rahino/database/models/core/user.entity';
-import { AutoMap } from 'automapper-classes';
-import { ECInventoryPrice } from '@rahino/database/models/ecommerce-eav/ec-inventory-price.entity';
-import { Op, Sequelize } from 'sequelize';
+} from "sequelize-typescript";
+import { ECProduct } from "./ec-product.entity";
+import { ECVendor } from "./ec-vendor.entity";
+import { ECColor } from "./ec-color.entity";
+import { ECGuarantee } from "./ec-guarantee.entity";
+import { ECGuaranteeMonth } from "./ec-guarantee-month.entity";
+import { ECProvince } from "./ec-province.entity";
+import { ECVendorAddress } from "./ec-vendor-address.entity";
+import { ECInventoryStatus } from "./ec-inventory-status.entity";
+import { User } from "../core/user.entity";
+import { AutoMap } from "automapper-classes";
+import { ECInventoryPrice } from "./ec-inventory-price.entity";
+import { Op, Sequelize } from "sequelize";
 
-@Table({ tableName: 'ECInventories' })
+@Table({ tableName: "ECInventories" })
 export class ECInventory extends Model {
   @Column({
     type: DataType.BIGINT,
@@ -36,7 +36,7 @@ export class ECInventory extends Model {
   @ForeignKey(() => ECProduct)
   productId: bigint;
 
-  @BelongsTo(() => ECProduct, { as: 'product', foreignKey: 'productId' })
+  @BelongsTo(() => ECProduct, { as: "product", foreignKey: "productId" })
   product?: ECProduct;
 
   @AutoMap()
@@ -46,7 +46,7 @@ export class ECInventory extends Model {
   @ForeignKey(() => ECVendor)
   vendorId: number;
 
-  @BelongsTo(() => ECVendor, { as: 'vendor', foreignKey: 'vendorId' })
+  @BelongsTo(() => ECVendor, { as: "vendor", foreignKey: "vendorId" })
   vendor?: ECVendor;
 
   @AutoMap()
@@ -57,7 +57,7 @@ export class ECInventory extends Model {
   @ForeignKey(() => ECColor)
   colorId?: number;
 
-  @BelongsTo(() => ECColor, { as: 'color', foreignKey: 'colorId' })
+  @BelongsTo(() => ECColor, { as: "color", foreignKey: "colorId" })
   color?: ECColor;
 
   @AutoMap()
@@ -68,7 +68,7 @@ export class ECInventory extends Model {
   @ForeignKey(() => ECGuarantee)
   guaranteeId?: number;
 
-  @BelongsTo(() => ECGuarantee, { as: 'guarantee', foreignKey: 'guaranteeId' })
+  @BelongsTo(() => ECGuarantee, { as: "guarantee", foreignKey: "guaranteeId" })
   guarantee?: ECGuarantee;
 
   @AutoMap()
@@ -80,8 +80,8 @@ export class ECInventory extends Model {
   guaranteeMonthId?: number;
 
   @BelongsTo(() => ECGuaranteeMonth, {
-    as: 'guaranteeMonth',
-    foreignKey: 'guaranteeMonthId',
+    as: "guaranteeMonth",
+    foreignKey: "guaranteeMonthId",
   })
   guaranteeMonth?: ECGuaranteeMonth;
 
@@ -107,8 +107,8 @@ export class ECInventory extends Model {
   onlyProvinceId?: number;
 
   @BelongsTo(() => ECProvince, {
-    as: 'onlyProvince',
-    foreignKey: 'onlyProvinceId',
+    as: "onlyProvince",
+    foreignKey: "onlyProvinceId",
   })
   onlyProvince?: ECProvince;
 
@@ -120,8 +120,8 @@ export class ECInventory extends Model {
   vendorAddressId: bigint;
 
   @BelongsTo(() => ECVendorAddress, {
-    as: 'vendorAddress',
-    foreignKey: 'vendorAddressId',
+    as: "vendorAddress",
+    foreignKey: "vendorAddressId",
   })
   vendorAddress?: ECVendorAddress;
 
@@ -138,8 +138,8 @@ export class ECInventory extends Model {
   inventoryStatusId: number;
 
   @BelongsTo(() => ECInventoryStatus, {
-    as: 'inventoryStatus',
-    foreignKey: 'inventoryStatusId',
+    as: "inventoryStatus",
+    foreignKey: "inventoryStatusId",
   })
   inventoryStatus?: ECInventoryStatus;
 
@@ -155,7 +155,7 @@ export class ECInventory extends Model {
   @ForeignKey(() => User)
   userId: bigint;
 
-  @BelongsTo(() => User, { as: 'user', foreignKey: 'userId' })
+  @BelongsTo(() => User, { as: "user", foreignKey: "userId" })
   user?: User;
 
   @Column({
@@ -170,12 +170,12 @@ export class ECInventory extends Model {
   @ForeignKey(() => User)
   deletedBy?: bigint;
 
-  @BelongsTo(() => User, { as: 'deletedByUser', foreignKey: 'deletedBy' })
+  @BelongsTo(() => User, { as: "deletedByUser", foreignKey: "deletedBy" })
   deletedByUser?: User;
 
   @HasOne(() => ECInventoryPrice, {
-    as: 'firstPrice',
-    foreignKey: 'inventoryId',
+    as: "firstPrice",
+    foreignKey: "inventoryId",
     scope: {
       [Op.and]: [
         {
@@ -187,8 +187,8 @@ export class ECInventory extends Model {
   firstPrice?: ECInventoryPrice;
 
   @HasOne(() => ECInventoryPrice, {
-    as: 'secondaryPrice',
-    foreignKey: 'inventoryId',
+    as: "secondaryPrice",
+    foreignKey: "inventoryId",
     scope: {
       [Op.and]: [
         {

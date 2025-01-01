@@ -5,12 +5,12 @@
   DataType,
   ForeignKey,
   BelongsTo,
-} from 'sequelize-typescript';
-import { ECVendor } from './ec-vendor.entity';
-import { ECAddress } from './ec-address.entity';
-import { User } from '@rahino/database/models/core/user.entity';
+} from "sequelize-typescript";
+import { ECVendor } from "./ec-vendor.entity";
+import { ECAddress } from "./ec-address.entity";
+import { User } from "../core/user.entity";
 
-@Table({ tableName: 'ECVendorAddresses' })
+@Table({ tableName: "ECVendorAddresses" })
 export class ECVendorAddress extends Model {
   @Column({
     primaryKey: true,
@@ -26,7 +26,7 @@ export class ECVendorAddress extends Model {
   @ForeignKey(() => ECVendor)
   vendorId: number;
 
-  @BelongsTo(() => ECVendor, { as: 'vendor', foreignKey: 'vendorId' })
+  @BelongsTo(() => ECVendor, { as: "vendor", foreignKey: "vendorId" })
   vendor?: ECVendor;
 
   @Column({
@@ -36,7 +36,7 @@ export class ECVendorAddress extends Model {
   @ForeignKey(() => ECAddress)
   addressId: bigint;
 
-  @BelongsTo(() => ECAddress, { as: 'address', foreignKey: 'addressId' })
+  @BelongsTo(() => ECAddress, { as: "address", foreignKey: "addressId" })
   address?: ECAddress;
 
   @Column({
@@ -46,7 +46,7 @@ export class ECVendorAddress extends Model {
   @ForeignKey(() => User)
   userId: bigint;
 
-  @BelongsTo(() => User, { as: 'user', foreignKey: 'userId' })
+  @BelongsTo(() => User, { as: "user", foreignKey: "userId" })
   user?: User;
 
   @Column({
