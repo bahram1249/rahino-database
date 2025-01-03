@@ -7,7 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && tsc",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "publish:next": "npm publish --access public --tag next",
+    "publish:npm": "npm publish --access public"
   },
   "repository": {
     "type": "git",
