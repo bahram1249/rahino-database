@@ -5,9 +5,14 @@ import {
   DataType,
   ForeignKey,
   BelongsTo,
-} from 'sequelize-typescript';
-import { AttachmentType } from './attachmentType.entity';
-import { User } from './user.entity';
+  BeforeCreate,
+} from "sequelize-typescript";
+import { AttachmentType } from "./attachmentType.entity";
+import { User } from "./user.entity";
+import {Sequelize, Dialect} from "sequelize";
+import * as dotenv from 'dotenv';
+
+dotenv.config()
 
 @Table
 export class Attachment extends Model {
@@ -41,12 +46,12 @@ export class Attachment extends Model {
   path: string;
   @Column({})
   thumbnailPath: string;
-  @Column({ onDelete: 'NO ACTION', onUpdate: 'NO ACTION' })
+  @Column({ onDelete: "NO ACTION", onUpdate: "NO ACTION" })
   @ForeignKey(() => AttachmentType)
   attachmentTypeId?: number;
   @BelongsTo(() => AttachmentType)
   attachmentType?: AttachmentType;
-  @Column({ onDelete: 'NO ACTION', onUpdate: 'NO ACTION' })
+  @Column({ onDelete: "NO ACTION", onUpdate: "NO ACTION" })
   @ForeignKey(() => User)
   userId?: bigint;
   @BelongsTo(() => User)
@@ -77,4 +82,9 @@ export class Attachment extends Model {
     allowNull: true,
   })
   versionId?: string;
+  @BeforeCreate
+  static beforeCreateHook(instance: Attachment, options: any): void {
+    if(process.env.DB_DIALECT as Dialect == 'oracle')
+      instance.set("id",Sequelize.literal('SEQ_Attachments.NEXTVAL'));
+  }
 }
