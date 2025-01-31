@@ -12,7 +12,7 @@ export * from "./bpmn-node-condition.entity";
 export * from "./bpmn-node.entity";
 export * from "./bpmn-occurred-event.entity";
 export * from "./bpmn-organization.entity";
-export * from "./bpmn-referal-type.entity";
+export * from "./bpmn-referral-type.entity";
 export * from "./bpmn-request-history.entity";
 export * from "./bpmn-request-occurred-event.entity";
 export * from "./bpmn-request.entity";

@@ -5,11 +5,13 @@ import {
   DataType,
   ForeignKey,
   BelongsTo,
+  HasMany,
 } from "sequelize-typescript";
 import { BPMNActivity } from "./bpmn-activity.entity";
 import { BPMNAction } from "./bpmn-action.entity";
-import { BPMNReferalType } from "./bpmn-referal-type.entity";
+import { BPMNReferralType } from "./bpmn-referral-type.entity";
 import { Role, User } from "../core";
+import { BPMNNodeCommand } from "./bpmn-node-command.entity";
 
 @Table({ tableName: "BPMNNodes" })
 export class BPMNNode extends Model {
@@ -40,7 +42,7 @@ export class BPMNNode extends Model {
   @Column({
     type: DataType.BOOLEAN,
   })
-  autoItrate: boolean;
+  autoIterate: boolean;
   @Column({
     type: DataType.INTEGER,
     allowNull: true,
@@ -54,11 +56,11 @@ export class BPMNNode extends Model {
   @Column({
     type: DataType.INTEGER,
   })
-  @ForeignKey(() => BPMNReferalType)
-  referalTypeId: number;
+  @ForeignKey(() => BPMNReferralType)
+  referralTypeId: number;
 
-  @BelongsTo(() => BPMNReferalType)
-  referalType?: BPMNReferalType;
+  @BelongsTo(() => BPMNReferralType)
+  referarlType?: BPMNReferralType;
 
   @Column({
     type: DataType.INTEGER,
@@ -90,4 +92,7 @@ export class BPMNNode extends Model {
     allowNull: true,
   })
   isDeleted?: boolean;
+
+  @HasMany(() => BPMNNodeCommand)
+  nodeCommands: BPMNNodeCommand[];
 }
