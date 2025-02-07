@@ -72,4 +72,10 @@ export class EAVBlog extends Model {
 
   @BelongsTo(() => User)
   user?: User;
+
+  @Column({
+    type: DataType.BOOLEAN,
+    allowNull: false,
+  })
+  isDeleted?: boolean;
 }
