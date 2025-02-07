@@ -9,4 +9,4 @@ export * from "./eav-entity-type.entity";
 export * from "./eav-entity-video.entity";
 export * from "./eav-entity.entity";
 export * from "./eav-blog-publish.entity";
-export * from "./eav-blog.entity";
+export * from "./eav-post.entity";

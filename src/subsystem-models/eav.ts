@@ -2,7 +2,7 @@ import {
   EAVAttribute,
   EAVAttributeType,
   EAVAttributeValue,
-  EAVBlog,
+  EAVPost,
   EAVBlogPublish,
   EAVEntity,
   EAVEntityAttribute,
@@ -25,5 +25,5 @@ export const eavEntities = [
   EAVEntityType,
   EAVEntityVideo,
   EAVBlogPublish,
-  EAVBlog,
+  EAVPost,
 ];

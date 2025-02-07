@@ -10,8 +10,8 @@ import { EAVEntityType } from "./eav-entity-type.entity";
 import { EAVBlogPublish } from "./eav-blog-publish.entity";
 import { User } from "../core";
 
-@Table({ tableName: "EAVBlogs" })
-export class EAVBlog extends Model {
+@Table({ tableName: "EAVPosts" })
+export class EAVPost extends Model {
   @Column({
     type: DataType.BIGINT,
     primaryKey: true,
