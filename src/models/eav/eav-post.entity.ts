@@ -9,6 +9,7 @@ import {
 import { EAVEntityType } from "./eav-entity-type.entity";
 import { EAVBlogPublish } from "./eav-blog-publish.entity";
 import { User } from "../core";
+import { AutoMap } from "automapper-classes";
 
 @Table({ tableName: "EAVPosts" })
 export class EAVPost extends Model {
@@ -17,6 +18,7 @@ export class EAVPost extends Model {
     primaryKey: true,
   })
   id: bigint;
+  @AutoMap()
   @Column({
     type: DataType.INTEGER,
     allowNull: true,
@@ -27,6 +29,7 @@ export class EAVPost extends Model {
   @BelongsTo(() => EAVEntityType)
   entityType?: EAVEntityType;
 
+  @AutoMap()
   @Column({
     type: DataType.INTEGER,
   })
@@ -35,29 +38,34 @@ export class EAVPost extends Model {
 
   @BelongsTo(() => EAVBlogPublish)
   publish?: EAVBlogPublish;
-
+  @AutoMap()
   @Column({
     type: DataType.STRING,
   })
   title: string;
+  @AutoMap()
   @Column({
     type: DataType.STRING,
   })
   slug: string;
+  @AutoMap()
   @Column({
     type: DataType.STRING,
   })
   description: string;
+  @AutoMap()
   @Column({
     type: DataType.STRING,
     allowNull: true,
   })
   metaTitle?: string;
+  @AutoMap()
   @Column({
     type: DataType.STRING,
     allowNull: true,
   })
   metaDescription?: string;
+  @AutoMap()
   @Column({
     type: DataType.STRING,
     allowNull: true,

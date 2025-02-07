@@ -215,6 +215,7 @@ export class ECInventory extends Model {
   })
   discountEndDate?: Date;
 
+  @AutoMap()
   @Column({
     type: DataType.STRING,
     allowNull: true,
