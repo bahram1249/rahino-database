@@ -214,4 +214,10 @@ export class ECInventory extends Model {
     allowNull: true,
   })
   discountEndDate?: Date;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  inventoryDescriptor?: string;
 }
