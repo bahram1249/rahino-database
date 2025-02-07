@@ -43,6 +43,10 @@ export class EAVBlog extends Model {
   @Column({
     type: DataType.STRING,
   })
+  slug: string;
+  @Column({
+    type: DataType.STRING,
+  })
   description: string;
   @Column({
     type: DataType.STRING,
