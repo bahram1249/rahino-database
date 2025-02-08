@@ -83,7 +83,7 @@ export class EAVPost extends Model {
 
   @Column({
     type: DataType.BOOLEAN,
-    allowNull: false,
+    allowNull: true,
   })
   isDeleted?: boolean;
 }
