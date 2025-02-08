@@ -34,7 +34,7 @@ export class EAVPost extends Model {
     type: DataType.INTEGER,
   })
   @ForeignKey(() => EAVBlogPublish)
-  pubilshId: number;
+  publishId: number;
 
   @BelongsTo(() => EAVBlogPublish)
   publish?: EAVBlogPublish;
