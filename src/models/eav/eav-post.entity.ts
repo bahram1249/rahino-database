@@ -5,11 +5,13 @@ import {
   DataType,
   ForeignKey,
   BelongsTo,
+  BelongsToMany,
 } from "sequelize-typescript";
 import { EAVEntityType } from "./eav-entity-type.entity";
 import { EAVBlogPublish } from "./eav-blog-publish.entity";
-import { User } from "../core";
+import { Attachment, User } from "../core";
 import { AutoMap } from "automapper-classes";
+import { EAVEntityPhoto } from "./eav-entity-photo.entity";
 
 @Table({ tableName: "EAVPosts" })
 export class EAVPost extends Model {
@@ -86,4 +88,12 @@ export class EAVPost extends Model {
     allowNull: true,
   })
   isDeleted?: boolean;
+
+  @BelongsToMany(
+    () => Attachment,
+    () => EAVEntityPhoto,
+    "entityId",
+    "attachmentId"
+  )
+  attachments?: Attachment[];
 }
