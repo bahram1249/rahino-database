@@ -69,12 +69,33 @@ export class BPMNRequestHistory extends Model {
 
   @Column({
     type: DataType.BIGINT,
+    allowNull: true,
   })
   @ForeignKey(() => User)
-  fromUserId: bigint;
+  fromUserId?: bigint;
 
   @BelongsTo(() => User)
   fromUser?: User;
+
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: true,
+  })
+  @ForeignKey(() => BPMNOrganization)
+  fromOrganizationId?: number;
+
+  @BelongsTo(() => BPMNOrganization)
+  fromOrganization?: BPMNOrganization;
+
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: true,
+  })
+  @ForeignKey(() => Role)
+  fromRoleId?: number;
+
+  @BelongsTo(() => Role)
+  fromRole?: Role;
 
   @Column({
     type: DataType.BIGINT,
