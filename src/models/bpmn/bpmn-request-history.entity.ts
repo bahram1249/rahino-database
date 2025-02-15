@@ -126,4 +126,16 @@ export class BPMNRequestHistory extends Model {
 
   @BelongsTo(() => BPMNOrganization)
   toOrganization?: BPMNOrganization;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  description?: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  executeBundle?: string;
 }
