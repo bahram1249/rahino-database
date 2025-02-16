@@ -18,7 +18,7 @@ export class BPMNNodeCondition extends Model {
   @ForeignKey(() => BPMNNode)
   nodeId: number;
 
-  @BelongsTo(() => BPMNNode)
+  @BelongsTo(() => BPMNNode, { as: "node", foreignKey: "nodeId" })
   node?: BPMNNode;
 
   @Column({
@@ -28,7 +28,10 @@ export class BPMNNodeCondition extends Model {
   @ForeignKey(() => BPMNCondition)
   conditionId: number;
 
-  @BelongsTo(() => BPMNCondition)
+  @BelongsTo(() => BPMNCondition, {
+    as: "condition",
+    foreignKey: "conditionId",
+  })
   condition?: BPMNCondition;
 
   @Column({

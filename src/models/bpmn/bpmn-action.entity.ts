@@ -26,7 +26,10 @@ export class BPMNAction extends Model {
   @ForeignKey(() => BPMNActionType)
   actionTypeId: number;
 
-  @BelongsTo(() => BPMNActionType)
+  @BelongsTo(() => BPMNActionType, {
+    as: "actionType",
+    foreignKey: "actionTypeId",
+  })
   actionType?: BPMNActionType;
 
   @Column({

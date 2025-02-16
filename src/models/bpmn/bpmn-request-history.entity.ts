@@ -22,7 +22,7 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => BPMNRequest)
   requestId: bigint;
 
-  @BelongsTo(() => BPMNRequest)
+  @BelongsTo(() => BPMNRequest, { as: "request", foreignKey: "requestId" })
   request: BPMNRequest;
 
   @Column({
@@ -37,7 +37,7 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => BPMNNode)
   nodeId: number;
 
-  @BelongsTo(() => BPMNNode)
+  @BelongsTo(() => BPMNNode, { as: "node", foreignKey: "nodeId" })
   node: BPMNNode;
 
   @Column({
@@ -46,7 +46,10 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => BPMNNodeCommand)
   nodeCommandId: number;
 
-  @BelongsTo(() => BPMNNodeCommand)
+  @BelongsTo(() => BPMNNodeCommand, {
+    as: "nodeCommand",
+    foreignKey: "nodeCommandId",
+  })
   nodeCommand: BPMNNodeCommand;
 
   @Column({
@@ -55,7 +58,10 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => BPMNActivity)
   fromActivityId: number;
 
-  @BelongsTo(() => BPMNActivity)
+  @BelongsTo(() => BPMNActivity, {
+    as: "fromActivity",
+    foreignKey: "fromActivityId",
+  })
   fromActivity: BPMNActivity;
 
   @Column({
@@ -64,7 +70,10 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => BPMNActivity)
   toActivityId: number;
 
-  @BelongsTo(() => BPMNActivity)
+  @BelongsTo(() => BPMNActivity, {
+    as: "toActivity",
+    foreignKey: "toActivityId",
+  })
   toActivity: BPMNActivity;
 
   @Column({
@@ -74,7 +83,7 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => User)
   fromUserId?: bigint;
 
-  @BelongsTo(() => User)
+  @BelongsTo(() => User, { as: "fromUser", foreignKey: "fromUserId" })
   fromUser?: User;
 
   @Column({
@@ -84,7 +93,10 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => BPMNOrganization)
   fromOrganizationId?: number;
 
-  @BelongsTo(() => BPMNOrganization)
+  @BelongsTo(() => BPMNOrganization, {
+    as: "fromOrganization",
+    foreignKey: "fromOrganizationId",
+  })
   fromOrganization?: BPMNOrganization;
 
   @Column({
@@ -94,7 +106,7 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => Role)
   fromRoleId?: number;
 
-  @BelongsTo(() => Role)
+  @BelongsTo(() => Role, { as: "fromRole", foreignKey: "fromRoleId" })
   fromRole?: Role;
 
   @Column({
@@ -104,7 +116,7 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => User)
   toUserId?: bigint;
 
-  @BelongsTo(() => User)
+  @BelongsTo(() => User, { as: "toUser", foreignKey: "toUserId" })
   toUser?: User;
 
   @Column({
@@ -114,7 +126,7 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => Role)
   toRoleId?: number;
 
-  @BelongsTo(() => Role)
+  @BelongsTo(() => Role, { as: "toRole", foreignKey: "toRoleId" })
   toRole?: Role;
 
   @Column({
@@ -124,7 +136,10 @@ export class BPMNRequestHistory extends Model {
   @ForeignKey(() => BPMNOrganization)
   toOrganizationId?: number;
 
-  @BelongsTo(() => BPMNOrganization)
+  @BelongsTo(() => BPMNOrganization, {
+    as: "toOrganization",
+    foreignKey: "toOrganizationId",
+  })
   toOrganization?: BPMNOrganization;
 
   @Column({

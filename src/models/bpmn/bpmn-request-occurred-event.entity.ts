@@ -18,7 +18,7 @@ export class BPMNRequestOccurredEvent extends Model {
   @ForeignKey(() => BPMNRequest)
   requestId: bigint;
 
-  @BelongsTo(() => BPMNRequest)
+  @BelongsTo(() => BPMNRequest, { as: "request", foreignKey: "requestId" })
   request?: BPMNRequest;
 
   @Column({
@@ -28,7 +28,10 @@ export class BPMNRequestOccurredEvent extends Model {
   @ForeignKey(() => BPMNOccurredEvent)
   occurredEventId: number;
 
-  @BelongsTo(() => BPMNOccurredEvent)
+  @BelongsTo(() => BPMNOccurredEvent, {
+    as: "occurredEvent",
+    foreignKey: "occurredEventId",
+  })
   occurredEvent?: BPMNOccurredEvent;
 
   @Column({

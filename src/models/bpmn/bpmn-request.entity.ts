@@ -24,7 +24,7 @@ export class BPMNRequest extends Model {
   @ForeignKey(() => User)
   userId: bigint;
 
-  @BelongsTo(() => User)
+  @BelongsTo(() => User, { as: "user", foreignKey: "userId" })
   user?: User;
 
   @Column({
@@ -33,7 +33,7 @@ export class BPMNRequest extends Model {
   @ForeignKey(() => BPMNPROCESS)
   processId: number;
 
-  @BelongsTo(() => BPMNPROCESS)
+  @BelongsTo(() => BPMNPROCESS, { as: "process", foreignKey: "processId" })
   process?: BPMNPROCESS;
 
   @Column({
@@ -43,6 +43,9 @@ export class BPMNRequest extends Model {
   @ForeignKey(() => BPMNOrganization)
   organizationId?: number;
 
-  @BelongsTo(() => BPMNOrganization)
+  @BelongsTo(() => BPMNOrganization, {
+    as: "organization",
+    foreignKey: "organizationId",
+  })
   organization?: BPMNOrganization;
 }

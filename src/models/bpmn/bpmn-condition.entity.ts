@@ -26,7 +26,10 @@ export class BPMNCondition extends Model {
   @ForeignKey(() => BPMNConditionType)
   conditionTypeId: number;
 
-  @BelongsTo(() => BPMNConditionType)
+  @BelongsTo(() => BPMNConditionType, {
+    as: "conditionType",
+    foreignKey: "conditionTypeId",
+  })
   conditionType?: BPMNConditionType;
 
   @Column({

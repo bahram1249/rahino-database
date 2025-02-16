@@ -20,7 +20,7 @@ export class BPMNRequestState extends Model {
   @ForeignKey(() => BPMNRequest)
   requestId: bigint;
 
-  @BelongsTo(() => BPMNRequest)
+  @BelongsTo(() => BPMNRequest, { as: "request", foreignKey: "requestId" })
   request?: BPMNRequest;
 
   @Column({
@@ -35,7 +35,7 @@ export class BPMNRequestState extends Model {
   @ForeignKey(() => BPMNActivity)
   activityId: number;
 
-  @BelongsTo(() => BPMNActivity)
+  @BelongsTo(() => BPMNActivity, { as: "activity", foreignKey: "activityId" })
   activity?: BPMNActivity;
 
   @Column({
@@ -45,7 +45,7 @@ export class BPMNRequestState extends Model {
   @ForeignKey(() => User)
   userId?: bigint;
 
-  @BelongsTo(() => User)
+  @BelongsTo(() => User, { as: "user", foreignKey: "userId" })
   user?: User;
 
   @Column({
@@ -55,7 +55,7 @@ export class BPMNRequestState extends Model {
   @ForeignKey(() => Role)
   roleId?: number;
 
-  @BelongsTo(() => Role)
+  @BelongsTo(() => Role, { as: "role", foreignKey: "roleId" })
   role?: Role;
 
   @Column({
@@ -65,7 +65,10 @@ export class BPMNRequestState extends Model {
   @ForeignKey(() => BPMNOrganization)
   organizationId?: number;
 
-  @BelongsTo(() => BPMNOrganization)
+  @BelongsTo(() => BPMNOrganization, {
+    as: "organization",
+    foreignKey: "organizationId",
+  })
   organization?: BPMNOrganization;
 
   @Column({

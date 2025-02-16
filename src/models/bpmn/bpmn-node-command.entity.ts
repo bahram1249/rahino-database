@@ -23,7 +23,7 @@ export class BPMNNodeCommand extends Model {
   @ForeignKey(() => BPMNNode)
   nodeId: number;
 
-  @BelongsTo(() => BPMNNode)
+  @BelongsTo(() => BPMNNode, { as: "node", foreignKey: "nodeId" })
   node?: BPMNNode;
 
   @Column({
@@ -36,7 +36,10 @@ export class BPMNNodeCommand extends Model {
   @ForeignKey(() => BPMNNodeCommandType)
   nodeCommandTypeId: number;
 
-  @BelongsTo(() => BPMNNodeCommandType)
+  @BelongsTo(() => BPMNNodeCommandType, {
+    as: "nodeCommandType",
+    foreignKey: "nodeCommandTypeId",
+  })
   nodeCommandType?: BPMNNodeCommandType;
 
   @Column({

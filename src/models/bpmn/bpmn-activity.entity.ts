@@ -35,7 +35,10 @@ export class BPMNActivity extends Model {
   @ForeignKey(() => BPMNActivityType)
   activityTypeId: number;
 
-  @BelongsTo(() => BPMNActivityType)
+  @BelongsTo(() => BPMNActivityType, {
+    as: "activityType",
+    foreignKey: "activityTypeId",
+  })
   activityType?: BPMNActivityType;
 
   @Column({
@@ -44,7 +47,7 @@ export class BPMNActivity extends Model {
   @ForeignKey(() => BPMNPROCESS)
   processId: number;
 
-  @BelongsTo(() => BPMNPROCESS)
+  @BelongsTo(() => BPMNPROCESS, { as: "process", foreignKey: "processId" })
   process?: BPMNPROCESS;
 
   @Column({
@@ -58,7 +61,10 @@ export class BPMNActivity extends Model {
   @ForeignKey(() => BPMNPROCESS)
   insideProcessRunnerId?: number;
 
-  @BelongsTo(() => BPMNPROCESS)
+  @BelongsTo(() => BPMNPROCESS, {
+    as: "insideProcessRunner",
+    foreignKey: "insideProcessRunnerId",
+  })
   insideProcessRunner?: BPMNPROCESS;
 
   @Column({

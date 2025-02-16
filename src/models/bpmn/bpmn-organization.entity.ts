@@ -31,6 +31,6 @@ export class BPMNOrganization extends Model {
   @ForeignKey(() => BPMNOrganization)
   parentId?: number;
 
-  @BelongsTo(() => BPMNOrganization)
+  @BelongsTo(() => BPMNOrganization, { as: "parent", foreignKey: "parentId" })
   parent?: BPMNOrganization;
 }

@@ -23,7 +23,7 @@ export class BPMNOutboundAction extends Model {
   @ForeignKey(() => BPMNActivity)
   activityId: number;
 
-  @BelongsTo(() => BPMNActivity)
+  @BelongsTo(() => BPMNActivity, { as: "activity", foreignKey: "activityId" })
   activity?: BPMNActivity;
 
   @Column({
@@ -32,7 +32,7 @@ export class BPMNOutboundAction extends Model {
   @ForeignKey(() => BPMNAction)
   actionId: number;
 
-  @BelongsTo(() => BPMNAction)
+  @BelongsTo(() => BPMNAction, { as: "action", foreignKey: "actionId" })
   action?: BPMNAction;
 
   @Column({

@@ -27,7 +27,10 @@ export class BPMNNode extends Model {
   @ForeignKey(() => BPMNActivity)
   fromActivityId: number;
 
-  @BelongsTo(() => BPMNActivity)
+  @BelongsTo(() => BPMNActivity, {
+    as: "fromActivity",
+    foreignKey: "fromActivityId",
+  })
   fromActivity?: BPMNActivity;
 
   @Column({
@@ -36,7 +39,10 @@ export class BPMNNode extends Model {
   @ForeignKey(() => BPMNActivity)
   toActivityId: number;
 
-  @BelongsTo(() => BPMNActivity)
+  @BelongsTo(() => BPMNActivity, {
+    as: "toActivity",
+    foreignKey: "toActivityId",
+  })
   toActivity?: BPMNActivity;
 
   @Column({
@@ -50,7 +56,10 @@ export class BPMNNode extends Model {
   @ForeignKey(() => BPMNAction)
   conditionFailedActionRunnerId?: number;
 
-  @BelongsTo(() => BPMNAction)
+  @BelongsTo(() => BPMNAction, {
+    as: "conditionFailedActionRunner",
+    foreignKey: "conditionFailedActionRunnerId",
+  })
   conditionFailedActionRunner?: BPMNAction;
 
   @Column({
@@ -59,8 +68,11 @@ export class BPMNNode extends Model {
   @ForeignKey(() => BPMNReferralType)
   referralTypeId: number;
 
-  @BelongsTo(() => BPMNReferralType)
-  referarlType?: BPMNReferralType;
+  @BelongsTo(() => BPMNReferralType, {
+    as: "referralType",
+    foreignKey: "referralTypeId",
+  })
+  referralType?: BPMNReferralType;
 
   @Column({
     type: DataType.INTEGER,
@@ -69,7 +81,7 @@ export class BPMNNode extends Model {
   @ForeignKey(() => Role)
   roleId?: number;
 
-  @BelongsTo(() => Role)
+  @BelongsTo(() => Role, { as: "role", foreignKey: "roleId" })
   role?: Role;
 
   @Column({
@@ -79,7 +91,7 @@ export class BPMNNode extends Model {
   @ForeignKey(() => User)
   userId?: bigint;
 
-  @BelongsTo(() => User)
+  @BelongsTo(() => User, { as: "user", foreignKey: "userId" })
   user?: User;
 
   @Column({
