@@ -32,7 +32,7 @@ export class GSProductType extends Model {
   @ForeignKey(() => GSProvider)
   providerId?: number;
 
-  @BelongsTo(() => GSProvider, { as: "provider", foreignKey: "provider" })
+  @BelongsTo(() => GSProvider, { as: "provider", foreignKey: "providerId" })
   provider?: GSProvider;
 
   @AutoMap()
