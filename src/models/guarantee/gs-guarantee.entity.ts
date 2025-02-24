@@ -53,7 +53,7 @@ export class GSGuarantee extends Model {
 
   @BelongsTo(() => GSGuaranteeType, {
     as: "guaranteeType",
-    foreignKey: "gauranteeTypeId",
+    foreignKey: "guaranteeTypeId",
   })
   guaranteeType?: GSGuaranteeType;
 
