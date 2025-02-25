@@ -129,4 +129,10 @@ export class GSGuarantee extends Model {
     allowNull: true,
   })
   description?: string;
+
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: true,
+  })
+  providerBaseId?: number;
 }

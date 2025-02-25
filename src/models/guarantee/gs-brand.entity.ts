@@ -41,4 +41,10 @@ export class GSBrand extends Model {
     allowNull: true,
   })
   description?: string;
+
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: true,
+  })
+  providerBaseId?: number;
 }
