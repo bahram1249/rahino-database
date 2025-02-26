@@ -6,6 +6,7 @@ import {
   GSGuaranteeType,
   GSProductType,
   GSProvider,
+  GSVariant,
 } from "../models";
 
 export const guaranteeModels = [
@@ -16,4 +17,5 @@ export const guaranteeModels = [
   GSGuaranteePeriod,
   GSGuaranteeType,
   GSProductType,
+  GSVariant,
 ];

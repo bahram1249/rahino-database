@@ -5,3 +5,4 @@ export * from "./gs-guarantee-confirm-status.entity";
 export * from "./gs-guarantee-period.entity";
 export * from "./gs-guarantee-type.entity";
 export * from "./gs-guarantee.entity";
+export * from "./gs-varaint.entity";
