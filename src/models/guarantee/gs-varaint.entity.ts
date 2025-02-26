@@ -9,7 +9,7 @@ import {
 } from "sequelize-typescript";
 import { GSProvider } from "./gs-provider.entity";
 
-@Table({ tableName: "GSVariant" })
+@Table({ tableName: "GSVariants" })
 export class GSVariant extends Model {
   @Column({
     type: DataType.INTEGER,
