@@ -12,3 +12,4 @@ export * from "./gs-province.entity";
 export * from "./gs-city.entity";
 export * from "./gs-neighborhood.entity";
 export * from "./gs-address.entity";
+export * from "./gs-guarantee-organization.entity";

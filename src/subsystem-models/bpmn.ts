@@ -12,6 +12,7 @@ import {
   BPMNNodeCondition,
   BPMNOccurredEvent,
   BPMNOrganization,
+  BPMNOrganizationUser,
   BPMNOutboundAction,
   BPMNPROCESS,
   BPMNReferralType,
@@ -43,4 +44,5 @@ export const bpmnModels = [
   BPMNRequestHistory,
   BPMNRequestOccurredEvent,
   BPMNRequestState,
+  BPMNOrganizationUser,
 ];

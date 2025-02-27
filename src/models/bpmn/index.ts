@@ -18,3 +18,4 @@ export * from "./bpmn-request-occurred-event.entity";
 export * from "./bpmn-request.entity";
 export * from "./bpmn-request-state.entity";
 export * from "./bpmn-activity-type.entity";
+export * from "./bpmn-organization-user.entity";

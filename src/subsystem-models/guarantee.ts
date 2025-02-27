@@ -5,6 +5,7 @@ import {
   GSCity,
   GSGuarantee,
   GSGuaranteeConfirmStatus,
+  GSGuaranteeOrganization,
   GSGuaranteePeriod,
   GSGuaranteeType,
   GSNeighborhood,
@@ -28,4 +29,5 @@ export const guaranteeModels = [
   GSCity,
   GSNeighborhood,
   GSAddress,
+  GSGuaranteeOrganization,
 ];
