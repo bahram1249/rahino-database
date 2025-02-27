@@ -12,6 +12,7 @@ import { GSBrand } from "./gs-brand.entity";
 import { GSGuaranteeType } from "./gs-guarantee-type.entity";
 import { GSGuaranteePeriod } from "./gs-guarantee-period.entity";
 import { GSGuaranteeConfirmStatus } from "./gs-guarantee-confirm-status.entity";
+import { GSVariant } from "./gs-varaint.entity";
 
 @Table({ tableName: "GSGuarantees" })
 export class GSGuarantee extends Model {
@@ -135,4 +136,15 @@ export class GSGuarantee extends Model {
     allowNull: true,
   })
   providerBaseId?: number;
+
+  @AutoMap()
+  @Column({
+    type: DataType.NUMBER,
+    allowNull: true,
+  })
+  @ForeignKey(() => GSVariant)
+  variantId: number;
+
+  @BelongsTo(() => GSVariant, { as: "variant", foreignKey: "variantId" })
+  variant?: GSVariant;
 }
