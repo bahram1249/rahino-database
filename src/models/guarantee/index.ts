@@ -8,3 +8,7 @@ export * from "./gs-guarantee.entity";
 export * from "./gs-varaint.entity";
 export * from "./gs-guarantee.entity";
 export * from "./gs-assigned-guarantee.entity";
+export * from "./gs-province.entity";
+export * from "./gs-city.entity";
+export * from "./gs-neighborhood.entity";
+export * from "./gs-address.entity";

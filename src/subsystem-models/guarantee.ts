@@ -1,12 +1,16 @@
 import {
+  GSAddress,
   GSAssignedGuarantee,
   GSBrand,
+  GSCity,
   GSGuarantee,
   GSGuaranteeConfirmStatus,
   GSGuaranteePeriod,
   GSGuaranteeType,
+  GSNeighborhood,
   GSProductType,
   GSProvider,
+  GSProvince,
   GSVariant,
 } from "../models";
 
@@ -20,4 +24,8 @@ export const guaranteeModels = [
   GSProductType,
   GSVariant,
   GSAssignedGuarantee,
+  GSProvince,
+  GSCity,
+  GSNeighborhood,
+  GSAddress,
 ];
