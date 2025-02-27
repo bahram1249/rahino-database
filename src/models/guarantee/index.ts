@@ -6,3 +6,5 @@ export * from "./gs-guarantee-period.entity";
 export * from "./gs-guarantee-type.entity";
 export * from "./gs-guarantee.entity";
 export * from "./gs-varaint.entity";
+export * from "./gs-guarantee.entity";
+export * from "./gs-assigned-guarantee.entity";

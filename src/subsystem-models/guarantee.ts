@@ -1,4 +1,5 @@
 import {
+  GSAssignedGuarantee,
   GSBrand,
   GSGuarantee,
   GSGuaranteeConfirmStatus,
@@ -18,4 +19,5 @@ export const guaranteeModels = [
   GSGuaranteeType,
   GSProductType,
   GSVariant,
+  GSAssignedGuarantee,
 ];
