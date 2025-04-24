@@ -7,12 +7,12 @@ import {
   ForeignKey,
   BelongsTo,
   BelongsToMany,
-} from 'sequelize-typescript';
-import * as bcrypt from 'bcrypt';
-import { UserRole } from './userRole.entity';
-import { Attachment } from './attachment.entity';
-import { Role } from './role.entity';
-import { AutoMap } from 'automapper-classes';
+} from "sequelize-typescript";
+import * as bcrypt from "bcrypt";
+import { UserRole } from "./userRole.entity";
+import { Attachment } from "./attachment.entity";
+import { Role } from "./role.entity";
+import { AutoMap } from "automapper-classes";
 //import { AutoMap } from '@automapper/classes';
 
 @Table
@@ -73,7 +73,7 @@ export class User extends Model {
       if (value) {
         const salt = bcrypt.genSaltSync(10);
         const hashedPassword = bcrypt.hashSync(value, salt);
-        this.setDataValue('password', hashedPassword);
+        this.setDataValue("password", hashedPassword);
       }
     },
   })
@@ -111,13 +111,19 @@ export class User extends Model {
   birthDate?: Date;
 
   @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  nationalCode?: string;
+
+  @Column({
     type: DataType.BIGINT,
     allowNull: true,
   })
   profilePhotoAttachmentId?: bigint;
   @BelongsTo(() => Attachment, {
-    as: 'profileAttachment',
-    foreignKey: 'profilePhotoAttachmentId',
+    as: "profileAttachment",
+    foreignKey: "profilePhotoAttachmentId",
   })
   profileAttachment?: Attachment;
   @HasMany(() => UserRole)
