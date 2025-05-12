@@ -110,6 +110,7 @@ export class User extends Model {
   })
   birthDate?: Date;
 
+  @AutoMap()
   @Column({
     type: DataType.STRING,
     allowNull: true,
