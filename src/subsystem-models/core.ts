@@ -12,6 +12,7 @@ import {
   PermissionGroup,
   Setting,
   PersianDate,
+  UserType,
 } from "../models/core";
 
 export const coreModels = [
@@ -28,4 +29,5 @@ export const coreModels = [
   PermissionGroup,
   Setting,
   PersianDate,
+  UserType,
 ];
