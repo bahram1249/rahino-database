@@ -13,6 +13,7 @@ import { UserRole } from "./userRole.entity";
 import { Attachment } from "./attachment.entity";
 import { Role } from "./role.entity";
 import { AutoMap } from "automapper-classes";
+import { UserType } from "./user-type.entity";
 //import { AutoMap } from '@automapper/classes';
 
 @Table
@@ -116,6 +117,17 @@ export class User extends Model {
     allowNull: true,
   })
   nationalCode?: string;
+
+  @AutoMap()
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: true,
+  })
+  @ForeignKey(() => UserType)
+  userTypeId?: number;
+
+  @BelongsTo(() => UserType, { as: "userType", foreignKey: "userTypeId" })
+  userType?: UserType;
 
   @Column({
     type: DataType.BIGINT,

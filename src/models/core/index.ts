@@ -10,4 +10,5 @@ export * from "./userRole.entity";
 export * from "./menu.entity";
 export * from "./permissionGroup.entity";
 export * from "./setting.entity";
+export * from "./user-type.entity";
 export * from "./view";
